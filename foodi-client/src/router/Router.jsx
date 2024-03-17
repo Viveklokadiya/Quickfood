@@ -49,11 +49,11 @@ const router = createBrowserRouter([
           path:"/checkout-success",
           element: <CheckOutSucess/>
         },
-        {
-          path: "/order/:id",
-          element: <Vieworder/>,
-          loader: ({params}) => fetch(`http://localhost:6001/orders/${params.id}`)
-        }
+        // {
+        //   path: "/order/:id",
+        //   element: <Vieworder/>,
+        //   loader: ({params}) => fetch(`http://localhost:6001/orders/${params.id}`)
+        // }
       ]
     },
     {
@@ -89,7 +89,7 @@ const router = createBrowserRouter([
           element: <ManageOrder/>
         }, 
         {
-          path: "orders/:id",
+          path: "orders/",
           element: <Vieworder/>,
           loader: ({params}) => fetch(`http://localhost:6001/orders/?orderId=${params.id}`)
         }, 
