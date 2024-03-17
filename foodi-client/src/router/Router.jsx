@@ -16,6 +16,9 @@ import ManageItems from "../pages/dashboard/admin/ManageItems";
 import UpdateMenu from "../pages/dashboard/admin/UpdateMenu";
 import Payment from "../pages/menuPage/Payment"
 import CheckOutSucess from "../components/CheckOutSucess"
+import ManageOrder from "../pages/dashboard/admin/ManageOrders";
+import Vieworder from "../pages/dashboard/admin/Vieworder";
+
 
 const router = createBrowserRouter([
     {
@@ -45,6 +48,11 @@ const router = createBrowserRouter([
         {
           path:"/checkout-success",
           element: <CheckOutSucess/>
+        },
+        {
+          path: "/order/:id",
+          element: <Vieworder/>,
+          loader: ({params}) => fetch(`http://localhost:6001/orders/${params.id}`)
         }
       ]
     },
@@ -71,12 +79,22 @@ const router = createBrowserRouter([
         {
           path: 'add-menu',
           element: <AddMenu/>
-        }, 
+        },
         {
           path: "manage-items",
           element: <ManageItems/>
         },
         {
+          path: "manage-order",
+          element: <ManageOrder/>
+        }, 
+        {
+          path: "orders/:id",
+          element: <Vieworder/>,
+          loader: ({params}) => fetch(`http://localhost:6001/orders/?orderId=${params.id}`)
+        }, 
+        {
+         
           path: "update-menu/:id",
           element: <UpdateMenu/>,
           loader: ({params}) => fetch(`http://localhost:6001/menu/${params.id}`)

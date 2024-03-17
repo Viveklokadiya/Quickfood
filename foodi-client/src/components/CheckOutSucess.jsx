@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'; // You need to install axios for making HTTP requests
 
+
 const CheckOutSucess = () => {
   const [orderData, setOrderData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -43,13 +44,46 @@ const CheckOutSucess = () => {
   }
 
   return (
-    <div>
+    <div className="max-w-screen-2xl container mx-auto xl:px-24 bg-gradient-to-r from-0% from-[#FAFAFA] to-[#FCFCFC] to-100%">
+      <div className="py-24  flex-col md:flex-row-reverse items-center justify-between gap-8">
       <h1>Order Details</h1>
       <p>Order ID: {orderData.id}</p>
       <p>Amount: {orderData.amount}</p>
-      <p>Currency: {orderData.currency}</p>
-      {/* Display other order details as needed */}
+      {/* <p>Currency: {orderData.currency}</p>
+      <p>Status: {orderData.status}</p> */}
+      <p>Email: {orderData.email}</p>
+      <p>User ID: {orderData.id}</p>
+      <p>User Name: {orderData.name}</p>
+      <p>User Phone: {orderData.phone}</p>
+      <p>User Address: {orderData.fulladress}</p>
+      <p>User status: {orderData.OrderStatus}</p>
+     
+      <div className="flex gap-3 mt-6 ">
+      {orderData.lineItems.map((item) => (
+        <li key={item.idd} className="felx  flex-row md:flex-row-reverse items-center justify-between gap-8">
+          <h3>{item.name}</h3>
+          <p>Quantity: {item.quantity}</p>
+          <p>Amount: ${item.amount / 100}</p> {/* assuming amount is in cents */}
+          <img src={item.image[0]} alt={item.name} style={{ maxWidth: '200px' }} />
+        </li>
+      ))}
     </div>
+     
+     
+
+
+      
+        
+       
+        
+  </div>
+    
+    
+    
+    </div>
+
+
+    
   );
 };
 

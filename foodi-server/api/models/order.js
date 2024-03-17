@@ -18,21 +18,27 @@ const orderSchema = new mongoose.Schema({
         required: true
     },
     phone: String,
-    address: {
-        city: String,
-        country: String,
-        line1: String,
-        line2: String,
-        postal_code: String,
-        state: String
-    },
+    fulladress:String,
+    // address: {
+    //     city: String,
+    //     country: String,
+    //     line1: String,
+    //     line2: String,
+    //     postal_code: String,
+    //     state: String
+    // },
     lineItems: [{
         name: String,
         quantity: Number,
         amount: Number,
         image: [String],
         idd: String
-    }]
+    }],
+    OrderStatus: {
+        type: String,
+        enum: ["Pending", "Completed", "Canceled"],
+        default: "Pending",
+      },
 });
 
 const ordersession = mongoose.model('order', orderSchema);

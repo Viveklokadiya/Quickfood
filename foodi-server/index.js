@@ -33,6 +33,7 @@ mongoose
 
 //   import routes here
 const menuRoutes = require('./api/routes/menuRoutes');
+const orderRoutes = require('./api/routes/orderRoutes');
 const cartRoutes = require('./api/routes/cartRoutes');
 const userRoutes = require('./api/routes/userRoutes');
 const checkoutRoutes = require('./api/routes/checkoutRoutes');
@@ -40,6 +41,7 @@ const CartReset  = require('./api/routes/CartReset');
 const dbroute = require('./api/routes/dbroute');
 const successrt = require('./api/routes/successRoute');
 app.use('/menu', menuRoutes);
+app.use('/orders', orderRoutes);
 app.use('/carts', cartRoutes);
 app.use('/users', userRoutes);
 app.use('/checkouts', checkoutRoutes);

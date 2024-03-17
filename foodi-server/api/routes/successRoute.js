@@ -27,6 +27,7 @@ router.get('/api/stripe/order', async (req, res) => {
         phone: session.customer_details.phone,
         // address: session.customer_details.address,
         fulladress: `${session.customer_details.address.line1}${session.customer_details.address.line2}${session.customer_details.address.city}${session.customer_details.address.state}${session.customer_details.address.postal_code}${session.customer_details.address.country}`,
+        OrderStatus:"Pending",
 
         lineItems: session.line_items.data.map(item => ({
           name: item.price.product.name,
@@ -36,6 +37,7 @@ router.get('/api/stripe/order', async (req, res) => {
           image:item.price.product.images,
           idd:item.price.product.metadata.id,
           
+          
           // Add more item details as needed
         })),
       };
@@ -44,6 +46,7 @@ router.get('/api/stripe/order', async (req, res) => {
 
 
       res.json(orderData);
+
       const Ordersession = new ordersession(orderData);
       await Ordersession.save();
     } catch (error) {
