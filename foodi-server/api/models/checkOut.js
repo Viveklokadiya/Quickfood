@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
 const checkoutschema = new Schema({
-    menuItemId: String,
+    id: String,
     name: {
         type: String,
         trim: true,

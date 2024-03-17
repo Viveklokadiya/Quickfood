@@ -25,9 +25,10 @@ router.post('/', async (req, res) => {
   try {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
+      // ui_mode: 'embedded',
       line_items,
       mode: 'payment',
-      success_url: 'http://localhost:5173/checkout-success',
+      success_url: 'http://localhost:5173/checkout-success?session_id={CHECKOUT_SESSION_ID}',
       cancel_url: 'https://your-website.com/cancel',
 
   shipping_address_collection: {
@@ -37,7 +38,7 @@ router.post('/', async (req, res) => {
       
         });
     
-        res.json({ url: session.url });
+        res.send({url: session.url});
       } catch (error) {
         res.status(500).json({ error: error.message });
       }
