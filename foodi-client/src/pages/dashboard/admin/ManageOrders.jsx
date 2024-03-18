@@ -32,7 +32,7 @@ const ManageOrder = () => {
   const renderOrders = () => {
     const filteredOrders = filterOrdersByStatus(selectedStatus);
     return (
-      <div className="max-w-full overflow-x-auto">
+      <div className="max-w-full overflow-x-auto ">
         <h2 className="text-xl font-bold mb-2">{selectedStatus} Orders</h2>
         <table className="table max-w-full">
           {/* Table head */}

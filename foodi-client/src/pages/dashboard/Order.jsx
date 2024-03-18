@@ -48,7 +48,7 @@ const Order = () => {
 
 
   return (
-    <div  className="  max-w-screen-2xl container mx-auto xl:px-24 px-4 text-[#000000] text-xl md:w-4/5 mx-auto">
+    <div  className="  max-w-screen-2xl container  xl:px-24 px-4 text-[#000000] text-xl md:w-4/5 mx-auto">
       {/* banner */}
       <div className=" bg-gradient-to-r from-0% from-[#FAFAFA] to-[#FCFCFC] to-100%">
         <div className="py-28 flex flex-col items-center justify-center">
@@ -56,7 +56,7 @@ const Order = () => {
         <table className="table">
         {/* head */}
         <thead>
-          <tr>
+          <tr className=" font-semibold mb-6 text-blue-700">
             <th>NO.</th>
             <th>View</th>
             <th>Name</th>
