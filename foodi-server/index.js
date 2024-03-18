@@ -38,7 +38,7 @@ const cartRoutes = require('./api/routes/cartRoutes');
 const userRoutes = require('./api/routes/userRoutes');
 const checkoutRoutes = require('./api/routes/checkoutRoutes');
 const CartReset  = require('./api/routes/CartReset');
-const dbroute = require('./api/routes/dbroute');
+const getorders = require('./api/routes/getorder');
 const successrt = require('./api/routes/successRoute');
 app.use('/menu', menuRoutes);
 app.use('/orders', orderRoutes);
@@ -46,7 +46,7 @@ app.use('/carts', cartRoutes);
 app.use('/users', userRoutes);
 app.use('/checkouts', checkoutRoutes);
 app.use('/CartReset', CartReset);
-app.use("/db", dbroute)
+app.use('/getorders', getorders);
 app.use("/SuccessfulPayment", successrt)
 
 app.get("/", (req, res) => {

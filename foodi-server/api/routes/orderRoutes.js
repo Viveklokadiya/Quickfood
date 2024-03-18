@@ -9,12 +9,6 @@ const verifyToken = require("../middleware/verifyToken");
 
 router.get('/', orderController.getAllOrders );
 router.get('/:id',orderController.getorder);
-router.get('/email',verifyToken,orderController.orderbymail)
-
-
-
-
-
 router.patch('/done/:id', orderController.makedone);
 router.patch('/cancle/:id', orderController.makecancle);
 

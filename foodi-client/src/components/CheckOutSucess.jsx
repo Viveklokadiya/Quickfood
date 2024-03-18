@@ -127,7 +127,11 @@ const CheckOutSucess = () => {
     </div>
     <p className="mt-8 font-semibold text-blue-800">Order Status: <span className="text-gray-800">{orderData.OrderStatus}</span></p>
 
-    <Link to="/"><button className="btn bg-green text-white mt-3 ">Back to Home</button></Link>
+    <div className="flex items-center justify-center gap-5">
+
+      <Link to="/"><button className=" items-center btn bg-green text-white mt-3 ">Back to Home</button></Link>
+      <Link to="/order"><button className=" items-center btn bg-green text-white mt-3 ">Back to Orders</button></Link>
+      </div>
     </div>
   </div>
         </div>

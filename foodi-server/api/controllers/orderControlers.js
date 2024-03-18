@@ -12,6 +12,9 @@ const getAllOrders = async (req, res) => {
 
 
 
+
+
+
 const makedone = async (req, res) => {
     const id = req.params.id;
     const {OrderStatus} = req.body;
@@ -64,25 +67,7 @@ const getorder = async (req, res) => {
     }
 };
 
-const orderbymail = async (req, res) => {
-    const {email} = req.query.email;
-    const query = {email: email};
-    // const { email } = req.query;
-    
-    console.log("Email is ", email);
-    try {
-        const decodedEmail = req.decoded.email;
-        if(email !== decodedEmail){
-            res.status(403).send({message: "Forbidden access"})
-        }
-        const result = await order.find(query).sort({createdAt: -1}).exec();
-        const orders = await order.find({ email });
-        res.status(200).json(result)
-        
-    } catch (error) {
-        res.status(404).json({ message: error.message });
-    }
-};
+
 
 
 
@@ -90,8 +75,7 @@ module.exports = {
     getAllOrders,
     makedone,
     makecancle,
-    getorder,
-    orderbymail
+    getorder
 };
 
 

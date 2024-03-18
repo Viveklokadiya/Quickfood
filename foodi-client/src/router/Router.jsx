@@ -18,6 +18,7 @@ import Payment from "../pages/menuPage/Payment"
 import CheckOutSucess from "../components/CheckOutSucess"
 import ManageOrder from "../pages/dashboard/admin/ManageOrders";
 import Vieworder from "../pages/dashboard/admin/Vieworder";
+import Orderview from "../pages/dashboard/Orderview";
 
 
 const router = createBrowserRouter([
@@ -49,11 +50,12 @@ const router = createBrowserRouter([
           path:"/checkout-success",
           element: <CheckOutSucess/>
         },
-        // {
-        //   path: "/order/:id",
-        //   element: <Vieworder/>,
-        //   loader: ({params}) => fetch(`http://localhost:6001/orders/${params.id}`)
-        // }
+        {
+          path: "/orders/",
+          element: <Orderview/>,
+          loader: ({params}) => fetch(`http://localhost:6001/orders/?orderId=${params.id}`)
+        }, 
+        
       ]
     },
     {

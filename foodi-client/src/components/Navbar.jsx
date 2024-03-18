@@ -52,24 +52,9 @@ const Navbar = () => {
           </ul>
         </details>
       </li>
-      <li tabIndex={0}>
-        <details>
-          <summary>Services</summary>
-          <ul className="p-2">
-            <li>
-              <a>Online Order</a>
-            </li>
-            <li>
-              <a>Table Booking</a>
-            </li>
-            <li>
-              <a>Order Tracking</a>
-            </li>
-          </ul>
-        </details>
-      </li>
+      
       <li>
-        <a>Offers</a>
+        <a href="/order">Orders</a>
       </li>
     </>
   );
@@ -104,7 +89,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-64 space-y-3"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-64 space-y-3 "
             >
               {navItems}
             </ul>
