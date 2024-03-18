@@ -46,6 +46,7 @@ router.get('/api/stripe/order', async (req, res) => {
 
 
       res.json(orderData);
+      // res.json(session);
 
       const Ordersession = new ordersession(orderData);
       await Ordersession.save();

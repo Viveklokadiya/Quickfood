@@ -37,6 +37,8 @@ router.post('/', async (req, res) => {
       phone_number_collection: {
         enabled: true,
       },
+      // email
+      customer_email: req.body.data.user?.email,
 
 
     });

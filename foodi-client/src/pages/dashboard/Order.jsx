@@ -1,27 +1,46 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import useAuth from '../../hooks/useAuth';
 import { useQuery } from '@tanstack/react-query';
+import { AuthContext } from '../../contexts/AuthProvider';
+import axios from 'axios';
 
 const Order = () => {
 
 
-  const { user } = useAuth();
-    console.log(user?.email)
-    const token = localStorage.getItem('access-token')
+  const { user } = useContext(AuthContext);
 
-    const { refetch, data: orders = [] } = useQuery({
-        queryKey: ['orders', user?.email],
-        queryFn: async () => {
-            const res = await fetch(`http://localhost:6001/orders/email/?email=${user?.email}`, {
-                headers: {
-                    authorization: `Bearer ${token}`
-                }
-            })
-            return res.json();
-        },
-    })
+  const data={
+    user:user,
+  }
 
-    console.log(orders);
+  axios.get(`http://localhost:6001/db`,{data}).then((res) => {
+      if(res){
+        // window.location.href= res.data.url;
+        console.log(res);
+      }else{
+        alert('Please login first');}
+      console.log(res);
+    }).catch((err) => console.log(err));
+
+
+
+  // const { user } = useAuth();/
+  //   console.log(user?.email)
+  //   const token = localStorage.getItem('access-token')
+
+  //   const { refetch, data: orders = [] } = useQuery({
+  //       queryKey: ['orders', user?.email],
+  //       queryFn: async () => {
+  //           const res = await fetch(`http://localhost:6001/orders/email/?email=${user?.email}`, {
+  //               headers: {
+  //                   authorization: `Bearer ${token}`
+  //               }
+  //           })
+  //           return res.json();
+  //       },
+  //   })
+
+  //   console.log(orders);
 
 
   return (
@@ -30,11 +49,11 @@ const Order = () => {
       <div className=" bg-gradient-to-r from-0% from-[#FAFAFA] to-[#FCFCFC] to-100%">
         <div className="py-28 flex flex-col items-center justify-center">
           {/* content */}
-          <div className=" text-center px-4 space-y-7">
+          {/* <div className=" text-center px-4 space-y-7">
             <h2 className="md:text-5xl text-4xl font-bold md:leading-snug leading-snug">
               Track Your All<span className="text-green"> Orders</span>
             </h2>
-          </div>
+          </div> */}
         </div>
       </div>
 
