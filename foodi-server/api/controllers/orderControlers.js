@@ -36,7 +36,7 @@ const makedone = async (req, res) => {
 }
 
 
-const makecancle = async (req, res) => {
+const makecancel = async (req, res) => {
     const id = req.params.id;
     const {OrderStatus} = req.body;
     try {
@@ -74,7 +74,7 @@ const getorder = async (req, res) => {
 module.exports = {
     getAllOrders,
     makedone,
-    makecancle,
+    makecancel,
     getorder
 };
 

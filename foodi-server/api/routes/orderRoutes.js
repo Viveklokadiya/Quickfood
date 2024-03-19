@@ -10,7 +10,7 @@ const verifyToken = require("../middleware/verifyToken");
 router.get('/', orderController.getAllOrders );
 router.get('/:id',orderController.getorder);
 router.patch('/done/:id', orderController.makedone);
-router.patch('/cancle/:id', orderController.makecancle);
+router.patch('/cancel/:id', orderController.makecancel);
 
 
 

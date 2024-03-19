@@ -92,7 +92,8 @@ const CheckOutSucess = () => {
                 <div key={index} className="bg-gray-100 p-6 rounded-md">
                   <h3 className="text-xl font-bold mb-2 text-blue-800">{item.name}</h3>
                   <p className="text-gray-800"><span className="font-semibold">Quantity:</span> {item.quantity}</p>
-                  <p className="text-gray-800"><span className="font-semibold">Amount:</span> ₹{item.amount}</p>
+                  <p className="text-gray-800"><span className="font-semibold">Amount:</span> ₹{item.amount /100}</p>
+                  <p className="text-gray-800"><span className="font-semibold">Total:</span> ₹{(item.amount * item.quantity)/100}</p>
                   <img src={item.image[0]} alt={item.name} className="mt-4 rounded-lg" style={{ maxWidth: '100%' }} />
                 </div>
               ))}
