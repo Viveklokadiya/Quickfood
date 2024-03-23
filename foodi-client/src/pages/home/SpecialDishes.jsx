@@ -38,14 +38,22 @@ const SpecialDishes = () => {
   const slider = React.useRef(null);
 
   useEffect(() => {
-    fetch("/menu.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const specials = data.filter((item) => item.category === "popular");
-        // console.log(specials)
-        setRecipes(specials);
-      });
+    // Fetch data from the backend
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:6001/menu");
+        const data = await response.json();
+        setRecipes(data);
+        // setFilteredItems(data); // Initially, display all items
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
   }, []);
+
+
   const settings = {
     dots: true,
     infinite: false,
@@ -87,7 +95,7 @@ const SpecialDishes = () => {
     <div className="max-w-screen-2xl container mx-auto xl:px-24 px-4 my-20 relative">
        <div className='text-left'>
             <p className='subtitle'>Customer Favorites</p>
-            <h2 className='title'>Popular Catagories</h2>
+            <h2 className='title'>Popular Itmes</h2>
         </div>
       <div className="md:absolute right-3 top-8 mb-10 md:mr-24">
         <button onClick={() => slider?.current?.slickPrev()}
