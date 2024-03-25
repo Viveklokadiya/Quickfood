@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\"",
+    "test": "opener http://localhost:5173",
+    "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\" \"npm test\"",
     "start:frontend": "cd foodi-client && npm run dev",
     "start:backend": "cd foodi-server && npm start",
     "preinstall": "concurrently \"npm run in:frontend\" \"npm run in:backend\"",
@@ -16,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "opener": "^1.5.2"
   }
 }
