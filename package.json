@@ -1,0 +1,21 @@
+{
+  "name": "food",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\"",
+    "start:frontend": "cd foodi-client && npm run dev",
+    "start:backend": "cd foodi-server && npm start",
+    "preinstall": "concurrently \"npm run in:frontend\" \"npm run in:backend\"",
+    "in:frontend": "cd foodi-client && npm i",
+    "in:backend": "cd foodi-server && npm i"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
