@@ -6,11 +6,11 @@
   "scripts": {
     "test": "opener http://localhost:5173",
     "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\" \"npm test\"",
-    "start:frontend": "cd foodi-client && npm run dev",
-    "start:backend": "cd foodi-server && npm start",
+    "start:frontend": "cd client && npm run dev",
+    "start:backend": "cd server && npm start",
     "preinstall": "concurrently \"npm run in:frontend\" \"npm run in:backend\"",
-    "in:frontend": "cd foodi-client && npm i",
-    "in:backend": "cd foodi-server && npm i"
+    "in:frontend": "cd client && npm i",
+    "in:backend": "cd server && npm i"
   },
   "keywords": [],
   "author": "",
