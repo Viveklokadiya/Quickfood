@@ -39,7 +39,7 @@ const DashboardLayout = () => {
       isAdmin ?   <div className="drawer sm:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col sm:items-start sm:justify-start my-2">
-        {/* Page content here */}
+        {/* Page content*/}
         <div className="flex items-center justify-between mx-4">
           <label
             htmlFor="my-drawer-2"
@@ -64,7 +64,7 @@ const DashboardLayout = () => {
         <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
           {/* Sidebar content here */}
           <li>
-            <Link to="/dashboard" className="flex justify-start mb-3">
+            <Link to="/" className="flex justify-start mb-3">
               <img src={logo} alt="" className="w-20" />
               <span className="badge badge-primary">admin</span>
             </Link>
@@ -77,7 +77,7 @@ const DashboardLayout = () => {
           </li>
           <li>
             <Link to="/dashboard/manage-order">
-              <FaShoppingBag /> Manage Bookings
+              <FaShoppingBag /> Manage Orders
             </Link>
           </li>
           <li>

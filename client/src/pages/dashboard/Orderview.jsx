@@ -14,23 +14,20 @@ const Orderview = () => {
 
     axiosSecure.get(`http://localhost:6001/orders/${sessionId}`)
       .then(response => {
-        // Check if response status is within the success range (200-299)
         if (response.status >= 200 && response.status < 300) {
-          // Data received successfully
-          setOrder(response.data); // Assuming response.data contains the order details
+          setOrder(response.data); 
           console.log(response.data);
         } else {
-          // Handle other status codes (e.g., 404 for not found)
           throw new Error('Network response was not ok');
         }
       })
       .catch(error => {
         console.error('There was a problem fetching the data:', error);
       });
-  }, [axiosSecure, setOrder]); // Include axiosSecure and setOrder in the dependency array
+  }, [axiosSecure, setOrder]); 
 
   if (!order) {
-    return <div>Loading...</div>; // Handle loading state
+    return <div>Loading...</div>;
   }
 
   return (

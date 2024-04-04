@@ -19,10 +19,9 @@ const Footer = () => {
         </nav>
         <nav>
           <header className="footer-title">Main Menu</header>
-          <a className="link link-hover">Home</a>
-          <a className="link link-hover">Offers</a>
-          <a className="link link-hover">Menus</a>
-          <a className="link link-hover">Reservation</a>
+          <a href="/" className="link link-hover">Home</a>
+          <a href="/menu" className="link link-hover">Menus</a>
+          <a href="/order" className="link link-hover">Orders</a>
         </nav>
         <nav>
           <header className="footer-title">Contact Us</header>

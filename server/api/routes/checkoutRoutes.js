@@ -29,7 +29,7 @@ router.post('/', async (req, res) => {
       line_items,
       mode: 'payment',
       success_url: 'http://localhost:5173/checkout-success?session_id={CHECKOUT_SESSION_ID}',
-      cancel_url: 'https://your-website.com/cancel',
+      cancel_url: 'http://localhost:5173/',
 
       shipping_address_collection: {
         allowed_countries: ['US', 'CA',],

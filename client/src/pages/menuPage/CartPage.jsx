@@ -206,7 +206,7 @@ const CartPage = (item) => {
                           +
                         </button>
                       </td>
-                      <td>${calculateTotalPrice(item).toFixed(2)}</td>
+                      <td>₹{calculateTotalPrice(item).toFixed(2)}</td>
                       <td>
                         <button
                           className="btn btn-sm border-none text-red bg-transparent"
@@ -237,7 +237,7 @@ const CartPage = (item) => {
               <p>Total Items: {cart.length}</p>
               <p>
                 Total Price:{" "}
-                <span id="total-price">${orderTotal.toFixed(2)}</span>
+                <span id="total-price">₹{orderTotal.toFixed(2)}</span>
               </p>
               <Link to="">
                 <button className="btn btn-md bg-orangee text-white px-8 py-1" 

@@ -36,7 +36,7 @@ const Navbar = () => {
           Home
         </a>
       </li>
-      <li >
+      <li>
         <a href="/menu">Menu</a>
       </li>
       <li>
@@ -49,10 +49,11 @@ const Navbar = () => {
       className={`max-w-screen-2xl container mx-auto fixed top-0 left-0 right-0 transition-all duration-300 ease-in-out`}
     >
       <div
-        className={`navbar xl:px-24 ${isSticky
+        className={`navbar xl:px-24 ${
+          isSticky
             ? "shadow-md bg-base-100 transition-all duration-300 ease-in-out"
             : ""
-          }`}
+        }`}
       >
         <div className="navbar-start">
           <div className="dropdown justify-between">
@@ -87,8 +88,6 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navItems}</ul>
         </div>
         <div className="navbar-end ">
-          
-
           {/* shopping cart */}
           <Link to="/cart-page">
             <label
@@ -110,20 +109,27 @@ const Navbar = () => {
                     d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                   />
                 </svg>
-                <span className="badge badge-sm indicator-item">{cart.length || 0}</span>
+                <span className="badge badge-sm indicator-item">
+                  {cart.length || 0}
+                </span>
               </div>
             </label>
           </Link>
 
           {/* login button */}
 
-          {
-            user ? <>
+          {user ? (
+            <>
               <Profile user={user} />
-            </> : <button onClick={() => document.getElementById('my_modal_5').showModal()} className="btn flex items-center gap-2 rounded-full px-6 bg-orangee text-white">
+            </>
+          ) : (
+            <button
+              onClick={() => document.getElementById("my_modal_5").showModal()}
+              className="btn flex items-center gap-2 rounded-full px-6 bg-orangee text-white"
+            >
               <FaRegUser /> Login
             </button>
-          }
+          )}
           <Modal />
         </div>
       </div>

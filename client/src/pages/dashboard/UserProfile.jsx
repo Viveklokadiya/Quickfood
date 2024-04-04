@@ -3,6 +3,7 @@ import { AuthContext } from "../../contexts/AuthProvider";
 import { useForm } from "react-hook-form";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const UserProfile = () => {
   const axiosPublic = useAxiosPublic();
@@ -30,7 +31,10 @@ const UserProfile = () => {
       updateUserProfile(name, hostingImg.data.data.display_url)
         .then(() => {
           // Profile updated!
-          alert("Profile updated successfully");
+
+          Swal.fire("Success", "Profile Updated successfully!", "success");
+          // Navigator('/');
+          // alert("Profile updated successfully");
         })
         .catch((error) => {
           // An error occurred
