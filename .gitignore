@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+client/firebase.json
+client/.firebase/hosting.ZGlzdA.cache
+client/.firebaserc
