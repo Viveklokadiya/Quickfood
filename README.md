@@ -75,6 +75,8 @@ Start the server
   npm start
 ```
 
+- Open http://localhost:5173/
+
 
 ## Tech Stack
 
