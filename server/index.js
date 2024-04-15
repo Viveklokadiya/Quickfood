@@ -40,6 +40,7 @@ const checkoutRoutes = require('./api/routes/checkoutRoutes');
 const CartReset  = require('./api/routes/CartReset');
 const getorders = require('./api/routes/getorder');
 const successrt = require('./api/routes/successRoute');
+const emlrt = require('./api/routes/emailRoute');
 app.use('/menu', menuRoutes);
 app.use('/orders', orderRoutes);
 app.use('/carts', cartRoutes);
@@ -48,6 +49,7 @@ app.use('/checkouts', checkoutRoutes);
 app.use('/CartReset', CartReset);
 app.use('/getorders', getorders);
 app.use("/SuccessfulPayment", successrt)
+app.use('/email',emlrt);
 
 app.get("/", (req, res) => {
   res.send("Hello Quickfood Client Server!");

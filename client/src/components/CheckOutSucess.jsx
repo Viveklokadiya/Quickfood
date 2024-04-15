@@ -31,6 +31,8 @@ const CheckOutSucess = () => {
         const response = await axios.get(`http://localhost:6001/SuccessfulPayment/api/stripe/order?session_id=${sessionId}`); // Replace '/api/stripe/order' with your backend endpoint for fetching order data
         setOrderData(response.data);
         setIsLoading(false);
+        const emlrs = await axios.get(`http://localhost:6001/email/send/${response.data.id}`);
+        console.log(emlrs);
       } catch (error) {
         setError(error.message);
         setIsLoading(false);
