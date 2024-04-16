@@ -11,6 +11,7 @@ https://quickfood-app.web.app/
 - Add/Manage items orders from dashboard
 - Google authentication
 - Stripe payment
+- Email invoice
 
 
 ## Environment Variables
@@ -47,6 +48,10 @@ There are two .env files
 ```
 
 - `STRIPE_KEY`- from stripe
+  
+- `USER` - Gmail User id
+  
+- `PASS` - Gmail App pass
 
 
 ## Run Locally
