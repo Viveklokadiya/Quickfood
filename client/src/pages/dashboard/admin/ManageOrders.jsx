@@ -16,6 +16,8 @@ const ManageOrder = () => {
       Swal.fire("completed!", "Your order has been completed.", "success");
       refetch();
     });
+    axiosSecure.get(`/email/send/done/${id}`).then((res) => res);
+
   };
 
   const makecancel = (id) => {
@@ -23,6 +25,8 @@ const ManageOrder = () => {
       Swal.fire("Canceled!", "Your order has been canceled.", "warning");
       refetch();
     });
+    axiosSecure.get(`/email/send/cancel/${id}`).then((res) => res);
+  
   };
 
   const filterOrdersByStatus = (status) => {
