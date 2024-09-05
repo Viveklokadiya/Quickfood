@@ -32,15 +32,20 @@ const Navbar = () => {
   const navItems = (
     <>
       <li>
-        <a href="/" className="text-orangee">
-          Home
-        </a>
+        <Link to="/">Hom
+          
+        
+        </Link>
       </li>
       <li>
-        <a href="/menu">Menu</a>
+        <Link to="/menu">Menu
+        </Link>
       </li>
+
       <li>
-        <a href="/order">Orders</a>
+        <Link to="/order">Orders
+        
+        </Link>
       </li>
     </>
   );
