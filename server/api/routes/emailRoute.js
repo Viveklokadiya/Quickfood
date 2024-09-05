@@ -19,14 +19,7 @@ router.get("/send/:id", async (req, res) => {
   };
   try {
     const orderDetails = await order.find(query);
-    // res.json(orderDetails.lineItems);
-
-    // console.log(orderDetails[0].email);
-
-    // if (!orderDetails || !orderDetails.lineItems) {
-    //     console.log("Order details or line items are undefined.");
-    //     return res.status(400).send("Order details or line items are undefined.");
-    // }
+  
 
     const sendInvoiceEmail = (orderDetails) => {
       let mailOptions = {
@@ -102,9 +95,7 @@ router.get("/send/:id", async (req, res) => {
                         </div>
                         <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                             <p style="font-weight: bold; color: #666;">Order Status:</p>
-                            <p style="color: #333;">${
-                              orderDetails[0].OrderStatus
-                            }</p>
+                            <p style="color: #333;">Order is Pending</p>
                         </div>
                         <p style="font-size: 12px; margin-top: 30px; color: #666;">This is an automated email. Please do not reply.</p>
                         </div>
@@ -139,14 +130,7 @@ router.get("/send/done/:id", async (req, res) => {
   // };
   try {
     const orderDetails = await order.findById(idd);
-    // res.json(orderDetails.lineItems);
-
-    // console.log(orderDetails[0].email);
-
-    // if (!orderDetails || !orderDetails.lineItems) {
-    //     console.log("Order details or line items are undefined.");
-    //     return res.status(400).send("Order details or line items are undefined.");
-    // }
+    
 
     const sendInvoiceEmail = (orderDetails) => {
       let mailOptions = {
@@ -222,9 +206,7 @@ router.get("/send/done/:id", async (req, res) => {
                         </div>
                         <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                             <p style="font-weight: bold; color: #666;">Order Status:</p>
-                            <p style="color: #333;">${
-                              orderDetails.OrderStatus
-                            }</p>
+                            <p style="color: #333;">Your Order is Completed</p>
                         </div>
                         <p style="font-size: 12px; margin-top: 30px; color: #666;">This is an automated email. Please do not reply.</p>
                         </div>
@@ -253,19 +235,9 @@ router.get("/send/done/:id", async (req, res) => {
 router.get("/send/cancel/:id", async (req, res) => {
   const idd = req.params.id;
   console.log(idd);
-  // const query = {
-  //   id: idd,
-  // };
   try {
     const orderDetails = await order.findById(idd);
-    // res.json(orderDetails);
 
-    // console.log(orderDetails[0].email);
-
-    // if (!orderDetails || !orderDetails.lineItems) {
-    //     console.log("Order details or line items are undefined.");
-    //     return res.status(400).send("Order details or line items are undefined.");
-    // }
 
     const sendInvoiceEmail = (orderDetails) => {
       let mailOptions = {
@@ -341,9 +313,7 @@ router.get("/send/cancel/:id", async (req, res) => {
                         </div>
                         <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                             <p style="font-weight: bold; color: #666;">Order Status:</p>
-                            <p style="color: #333;">${
-                              orderDetails.OrderStatus
-                            }</p>
+                            <p style="color: #333;">Your Order is Cancelled</p>
                         </div>
                         <p style="font-size: 12px; margin-top: 30px; color: #666;">This is an automated email. Please do not reply.</p>
                         </div>
