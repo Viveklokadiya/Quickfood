@@ -2,12 +2,13 @@ const express = require("express");
 const router = express.Router();
 const nodemailer = require("nodemailer");
 const order = require("../models/order");
+require("dotenv").config();
 
 let transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "alerts.quickfood@gmail.com", // Your Gmail email address
-    pass: "irct nstg navw idkl", // Your Gmail password
+    user: process.env.USER, // Your Gmail email address
+    pass: process.env.PASS, // Your Gmail password
   },
 });
 
