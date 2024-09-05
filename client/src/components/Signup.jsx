@@ -42,6 +42,7 @@ const Signup = () => {
               alert("Signin successful!");
               navigate(from, { replace: true });
             });
+            window.location.href = "/";
         });
       })
       .catch((error) => {
@@ -67,6 +68,7 @@ const Signup = () => {
             alert("Signin successful!");
             navigate("/");
           });
+          window.location.href = "/";
       })
       .catch((error) => console.log(error));
   };
@@ -100,8 +102,7 @@ const Signup = () => {
               {...register("email")}
             />
           </div>
-
-          {/* password */}
+          {/* password requirements */}
           <div className="form-control">
             <label className="label">
               <span className="label-text">Password</span>
@@ -110,8 +111,11 @@ const Signup = () => {
               type="password"
               placeholder="password"
               className="input input-bordered"
-              {...register("password")}
+              {...register("password", { required: true, minLength: 6 })}
             />
+            {errors.password && (
+              <p className="text-red-500 error-message" >Password must be at least 6 characters long</p>
+            )}
             <label className="label">
               <a href="#" className="label-text-alt link link-hover mt-2">
                 Forgot password?

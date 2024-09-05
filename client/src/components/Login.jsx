@@ -42,6 +42,8 @@ const Login = () => {
             alert("Signin successful!");
             navigate(from, { replace: true });
           });
+
+          window.location.href = "/";
         // console.log(user);
         // ...
       })
@@ -69,7 +71,9 @@ const Login = () => {
             // console.log(response);
             alert("Signin successful!");
             navigate("/");
+            
           });
+          window.location.href = "/";
       })
       .catch((error) => console.log(error));
   };

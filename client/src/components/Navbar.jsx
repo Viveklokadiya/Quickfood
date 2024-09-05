@@ -32,7 +32,8 @@ const Navbar = () => {
   const navItems = (
     <>
       <li>
-        <Link to="/">Hom
+        <Link to="/" className="text-orangee">
+        Home
           
         
         </Link>
