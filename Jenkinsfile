@@ -12,6 +12,20 @@ pipeline {
       }
     }
 
+    stage('Prepare Env Files') {
+      steps {
+        withCredentials([
+          file(credentialsId: 'quickfood-client-env', variable: 'CLIENT_ENV_FILE'),
+          file(credentialsId: 'quickfood-server-env', variable: 'SERVER_ENV_FILE')
+        ]) {
+          sh '''
+            cp "$CLIENT_ENV_FILE" client/.env
+            cp "$SERVER_ENV_FILE" server/.env
+          '''
+        }
+      }
+    }
+
     stage('Build Frontend Image') {
       steps {
         sh """

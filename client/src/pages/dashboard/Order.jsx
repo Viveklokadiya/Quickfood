@@ -20,7 +20,7 @@ const Order = () => {
 
   useEffect(() => {
     axiosSecure
-      .get(`http://3.109.200.232:6001/getorders/${email}`)
+      .get(`http://3.109.3.81:6001/getorders/${email}`)
       .then((response) => {
         if (response.status >= 200 && response.status < 300) {
           setOrder(response.data); 

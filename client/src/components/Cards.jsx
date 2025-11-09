@@ -24,7 +24,7 @@ const Cards = ({ item }) => {
     if(user && user.email){
         const cartItem = {menuItemId: _id, name, quantity : 1, image, price, email: user.email}
 
-        axios.post('http://3.109.200.232:6001/carts', cartItem)
+        axios.post('http://3.109.3.81:6001/carts', cartItem)
         .then((response) => {
           console.log(response);
           if(response){

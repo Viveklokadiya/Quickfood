@@ -17,8 +17,8 @@ spec:
     spec:
       containers:
       - name: quickfood-frontend
-        image: quickfood-client:envfix
-        imagePullPolicy: Never
+        image: quickfood-client:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
         envFrom:
