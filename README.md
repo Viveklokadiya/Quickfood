@@ -7,11 +7,12 @@ https://quickfood-app.web.app/
 
 ## Features
 
-- Admin dashboard
+- Admin dashboard 
 - Add/Manage items orders from dashboard
 - Google authentication
 - Stripe payment
 - Email invoice
+- jenkins pipeline
 
 
 ## Environment Variables
