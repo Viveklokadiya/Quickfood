@@ -1,0 +1,37 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: quickfood-frontend-ingress
+  namespace: quickfood
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: quickfood.viveklokadiya.live
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: frontend
+            port:
+              number: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: quickfood-backend-ingress
+  namespace: quickfood
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: api.quickfood.viveklokadiya.live
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: backend
+            port:
+              number: 6001

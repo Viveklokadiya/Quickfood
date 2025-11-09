@@ -6,6 +6,9 @@ pipeline {
       steps {
         deleteDir()
         git branch: 'devops', url: "https://github.com/Viveklokadiya/Quickfood.git"
+        script {
+          env.IMAGE_TAG = "build-${env.BUILD_NUMBER}"
+        }
       }
     }
 
@@ -13,6 +16,7 @@ pipeline {
       steps {
         sh """
           docker build \
+            -t viveklokadiya/quickfood-client:${IMAGE_TAG} \
             -t viveklokadiya/quickfood-client:latest \
             -f client/Dockerfile client
         """
@@ -23,6 +27,7 @@ pipeline {
       steps {
         sh """
           docker build \
+            -t viveklokadiya/quickfood-server:${IMAGE_TAG} \
             -t viveklokadiya/quickfood-server:latest \
             -f server/Dockerfile server
         """
@@ -38,7 +43,9 @@ pipeline {
         )]) {
           sh '''
             echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+            docker push viveklokadiya/quickfood-client:${IMAGE_TAG}
             docker push viveklokadiya/quickfood-client:latest
+            docker push viveklokadiya/quickfood-server:${IMAGE_TAG}
             docker push viveklokadiya/quickfood-server:latest
             docker logout
           '''
@@ -52,13 +59,13 @@ pipeline {
           credentialsId: 'quickfood-kubeconfig',
           variable: 'KUBECONFIG_FILE'
         )]) {
-          sh '''
-            export KUBECONFIG="$KUBECONFIG_FILE"
-            kubectl set image deployment/frontend-deployment quickfood-frontend=viveklokadiya/quickfood-client:latest -n quickfood
-            kubectl set image deployment/backend-deployment quickfood-backend=viveklokadiya/quickfood-server:latest -n quickfood
+          sh """
+            export KUBECONFIG="\$KUBECONFIG_FILE"
+            kubectl set image deployment/frontend-deployment quickfood-frontend=viveklokadiya/quickfood-client:${IMAGE_TAG} -n quickfood
+            kubectl set image deployment/backend-deployment quickfood-backend=viveklokadiya/quickfood-server:${IMAGE_TAG} -n quickfood
             kubectl rollout status deployment/frontend-deployment -n quickfood
             kubectl rollout status deployment/backend-deployment -n quickfood
-          '''
+          """
         }
       }
     }

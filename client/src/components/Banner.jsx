@@ -21,7 +21,7 @@ const Banner = () => {
           </h2>
           <p className="text-[#4A4A4A] text-xl">
             Where Each Plate Weaves a Story of Culinary Mastery and Passionate
-            Craftsmanship this is my change
+            Craftsmanship this is my change this is further modification
           </p>
           <Link to="/menu">
             <button className="bg-orangee font-semibold btn text-white px-8 py-3 rounded-full">
