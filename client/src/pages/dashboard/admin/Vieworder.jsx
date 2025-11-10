@@ -11,7 +11,7 @@ const Vieworder = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const sessionId = urlParams.get('orderId');
 
-    axiosSecure.get(`http://3.109.3.81:6001/orders/${sessionId}`)
+    axiosSecure.get(`http://api.quickfood.viveklokadiya.live/orders/${sessionId}`)
       .then(response => {
         // Check if response status is within the success range (200-299)
         if (response.status >= 200 && response.status < 300) {

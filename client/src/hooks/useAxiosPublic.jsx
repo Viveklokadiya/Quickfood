@@ -3,7 +3,7 @@ import React from 'react'
 
 
 const axiosPublic =  axios.create({
-    baseURL: 'http://3.109.3.81:6001',
+    baseURL: 'http://api.quickfood.viveklokadiya.live',
   })
 
 const useAxiosPublic = () => {

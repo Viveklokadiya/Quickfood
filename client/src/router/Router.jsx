@@ -52,7 +52,7 @@ const router = createBrowserRouter([
         {
           path: "/orders/",
           element: <Orderview/>,
-          loader: ({params}) => fetch(`http://3.109.3.81:6001/orders/?orderId=${params.id}`)
+          loader: ({params}) => fetch(`http://api.quickfood.viveklokadiya.live/orders/?orderId=${params.id}`)
         }, 
         
       ]
@@ -92,13 +92,13 @@ const router = createBrowserRouter([
         {
           path: "orders/",
           element: <Vieworder/>,
-          loader: ({params}) => fetch(`http://3.109.3.81:6001/orders/?orderId=${params.id}`)
+          loader: ({params}) => fetch(`http://api.quickfood.viveklokadiya.live/orders/?orderId=${params.id}`)
         }, 
         {
          
           path: "update-menu/:id",
           element: <UpdateMenu/>,
-          loader: ({params}) => fetch(`http://3.109.3.81:6001/menu/${params.id}`)
+          loader: ({params}) => fetch(`http://api.quickfood.viveklokadiya.live/menu/${params.id}`)
         }
       ]
     }

@@ -10,7 +10,7 @@ const useCart = () => {
     const { refetch, data: cart = [] } = useQuery({
         queryKey: ['carts', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://3.109.3.81:6001/carts?email=${user?.email}`, {
+            const res = await fetch(`http://api.quickfood.viveklokadiya.live/carts?email=${user?.email}`, {
                 headers: {
                     authorization: `Bearer ${token}`
                 }

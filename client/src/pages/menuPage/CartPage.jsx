@@ -23,7 +23,7 @@ const CartPage = (item) => {
   // Handle quantity increase
   const handleIncrease = async (item) => {
     try {
-      const response = await fetch(`http://3.109.3.81:6001/carts/${item._id}`, {
+      const response = await fetch(`http://api.quickfood.viveklokadiya.live/carts/${item._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -55,7 +55,7 @@ const CartPage = (item) => {
     if (item.quantity > 1) {
       try {
         const response = await fetch(
-          `http://3.109.3.81:6001/carts/${item._id}`,
+          `http://api.quickfood.viveklokadiya.live/carts/${item._id}`,
           {
             method: "PUT",
             headers: {
@@ -107,7 +107,7 @@ const CartPage = (item) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://3.109.3.81:6001/carts/${item._id}`).then(response => {
+        axios.delete(`http://api.quickfood.viveklokadiya.live/carts/${item._id}`).then(response => {
           if (response) {
             refetch();
             Swal.fire("Deleted!", "Your file has been deleted.", "success");
@@ -129,7 +129,7 @@ const CartPage = (item) => {
     }
 
     console.log('data',data);
-    axios.post(`http://3.109.3.81:6001/checkouts`,{data}).then((res) => {
+    axios.post(`http://api.quickfood.viveklokadiya.live/checkouts`,{data}).then((res) => {
       if(res.data.url){
         window.location.href= res.data.url;
         console.log(res);
