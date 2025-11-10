@@ -52,7 +52,7 @@ app.use("/SuccessfulPayment", successrt)
 app.use('/email',emlrt);
 
 app.get("/", (req, res) => {
-  res.send("Hello Quickfood Client Server! new");
+  res.send("Hello Quickfood Client Server! new latest");
 });
 
 app.listen(port, () => {
