@@ -3,7 +3,7 @@ import {useNavigate} from "react-router-dom"
 import useAuth from "./useAuth";
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:6001',
+    baseURL: 'http://api.quickfood.viveklokadiya.live',
 })
 
 const useAxiosSecure = () => {

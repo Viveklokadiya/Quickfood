@@ -15,7 +15,7 @@ const CheckOutSucess = () => {
   const  email = user?.email;
 
   useEffect(() => {
-    axios.delete(`http://localhost:6001/CartReset/${email}`)
+    axios.delete(`http://api.quickfood.viveklokadiya.live/CartReset/${email}`)
 
     const fetchOrderData = async () => {
       try {
@@ -28,10 +28,10 @@ const CheckOutSucess = () => {
         }
 
         // Fetching order data from Stripe
-        const response = await axios.get(`http://localhost:6001/SuccessfulPayment/api/stripe/order?session_id=${sessionId}`); // Replace '/api/stripe/order' with your backend endpoint for fetching order data
+        const response = await axios.get(`http://api.quickfood.viveklokadiya.live/SuccessfulPayment/api/stripe/order?session_id=${sessionId}`); // Replace '/api/stripe/order' with your backend endpoint for fetching order data
         setOrderData(response.data);
         setIsLoading(false);
-        const emlrs = await axios.get(`http://localhost:6001/email/send/${response.data.id}`);
+        const emlrs = await axios.get(`http://api.quickfood.viveklokadiya.live/email/send/${response.data.id}`);
         console.log(emlrs);
       } catch (error) {
         setError(error.message);

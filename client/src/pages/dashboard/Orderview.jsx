@@ -12,7 +12,7 @@ const Orderview = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const sessionId = urlParams.get('orderId');
 
-    axiosSecure.get(`http://localhost:6001/orders/${sessionId}`)
+    axiosSecure.get(`http://api.quickfood.viveklokadiya.live/orders/${sessionId}`)
       .then(response => {
         if (response.status >= 200 && response.status < 300) {
           setOrder(response.data); 

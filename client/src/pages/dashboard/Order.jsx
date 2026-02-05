@@ -20,7 +20,7 @@ const Order = () => {
 
   useEffect(() => {
     axiosSecure
-      .get(`http://localhost:6001/getorders/${email}`)
+      .get(`http://api.quickfood.viveklokadiya.live/getorders/${email}`)
       .then((response) => {
         if (response.status >= 200 && response.status < 300) {
           setOrder(response.data); 

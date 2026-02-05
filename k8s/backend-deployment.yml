@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  namespace: quickfood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      name: backend-pod
+      namespace: quickfood
+      labels: 
+        app: backend
+    spec:
+      containers:
+      - name: quickfood-backend
+        image: viveklokadiya/quickfood-server:latest
+        ports:
+        - containerPort: 6001
+        envFrom:
+        - secretRef:
+            name: backend-env
