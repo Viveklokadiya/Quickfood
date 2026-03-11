@@ -41,12 +41,7 @@ There are two .env files
 
 - `MONGO_URI`- from mongodb
 
-- `ACCESS_TOKEN_SECRET`- for this
-
-```bash
-  node
-  require('crypto').randomBytes(64).toString('hex')
-```
+- `ACCESS_TOKEN_SECRET`-
 
 - `STRIPE_KEY`- from stripe
   
