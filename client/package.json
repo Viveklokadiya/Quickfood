@@ -28,7 +28,7 @@
     "slick-carousel": "^1.8.1",
     "sort-by": "^1.2.0",
     "sweetalert2": "^11.10.1",
-    "swiper": "^11.0.4"
+    "swiper": "^12.1.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.37",
